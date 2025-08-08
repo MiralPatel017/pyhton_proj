@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p>This is your secure dashboard.</p>
+    
+    {% if user.role == 'admin' %}
+    <p>You have administrative privileges.</p>
+    <a href="{{ url_for('admin_panel') }}" class="btn btn-info">Go to Admin Panel</a>
+    {% endif %}
+
+    <p><a href="{{ url_for('logout') }}" class="btn btn-danger mt-3">Logout</a></p>
+</div>
+{% endblock %}
